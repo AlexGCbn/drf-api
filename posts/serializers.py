@@ -35,3 +35,7 @@ class PostSerializer(serializers.ModelSerializer):
             'updated_at', 'title',
             'content', 'image', 'image_filter'
         ]
+
+
+class PostDetailSerializer(PostSerializer):
+    owner = serializers.ReadOnlyField(source='user.id')

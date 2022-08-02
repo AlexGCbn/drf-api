@@ -17,3 +17,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'updated_at', 'name',
             'content', 'image', 'is_owner'
         ]
+
+
+class ProfileDetailSerializer(ProfileSerializer):
+    owner = serializers.ReadOnlyField(source='user.id')
